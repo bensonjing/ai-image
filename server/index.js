@@ -12,8 +12,8 @@ const app = express()
 app.use(cors())
 app.use(express.json({ limit: '50mb' }))
 
-app.use('api/v1/post', PostRoutes)
-app.use('api/v1/dalle', DalleRoutes)
+app.use('/post', PostRoutes)
+app.use('/dalle', DalleRoutes)
 
 app.get('/', async (req, res) => {
   res.send('Hello, World!')
