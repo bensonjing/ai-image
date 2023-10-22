@@ -45,8 +45,6 @@ export default function CreatePost() {
             placeholder="A plush toy robot sitting against a yellow wall"
             value={form.prompt}
             handleChange={handleChange}
-            isSupriseMe
-            handleSupriseMe={handleSupriseMe}
           />
 
           <FormField
@@ -56,6 +54,8 @@ export default function CreatePost() {
             placeholder=""
             value={form.name}
             handleChange={handleChange}
+            isSupriseMe
+            handleSupriseMe={handleSupriseMe}
           />
         </div>
       </form>
