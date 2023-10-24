@@ -19,7 +19,7 @@ export default function CreatePost() {
     if (form.prompt) {
       try {
         setGeneratingImg(true)
-        const response = await fetch('http://192.168.0.208:8080/dalle', {
+        const response = await fetch('https://ai-image-gnpa.onrender.com/dalle', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -48,7 +48,7 @@ export default function CreatePost() {
       setLoading(true)
 
       try {
-        const response = await fetch('http://192.168.0.208:8080/post', {
+        const response = await fetch('https://ai-image-gnpa.onrender.com/post', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
