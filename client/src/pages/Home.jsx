@@ -19,6 +19,8 @@ export default function Home() {
   const [allPosts, setAllPosts] = useState(null)
 
   const [searchText, setSearchText] = useState("")
+  const [searchResult, setSearchResult] = useState(null)
+  const [searchTimeout, sertSearchTimeout] = useState(null)
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -48,6 +50,18 @@ export default function Home() {
     fetchPosts()
   }, [])
 
+  const handleSearchChange = (e) => {
+    setSearchText(e.target.value)
+
+    sertSearchTimeout(
+      setTimeout(() => {
+        const searchResults = allPosts.filter((item) => item.name.toLowerCase().includes(searchText.toLowerCase()) || item.prompt.toLowerCase().includes(searchText.toLowerCase()))
+
+        setSearchResult(searchResults)
+      }, 500)
+    )
+  }
+
   return (
     <section className="max-w-7xl mx-auto">
       <div>
@@ -58,7 +72,14 @@ export default function Home() {
       </div>
 
       <div className="mt-16">
-        <FormField />
+        <FormField
+          labelName="Search posts"
+          type="text"
+          name="text"
+          placeholder="Search posts"
+          value={searchText}
+          handleChange={handleSearchChange}
+        />
       </div>
 
       <div className="mt-10">
@@ -77,7 +98,7 @@ export default function Home() {
             <div className="grid lg:grid-cols-4 sm:grid-cols-3 sx:grid-cols-2 grid-cols-1 gap-3">
               {searchText ? (
                 <RenderCards
-                  data={[]}
+                  data={searchResult}
                   title="No search results found"
                 />
               ) : (
