@@ -1,6 +1,7 @@
 # AI Image Generation MERN Web App 
 
-A web application that generate image based on given prompt. [Go to website]('https://www.ai-image-gen.com')
+A web application that generate image based on given prompt.  
+[Go to website](https://www.ai-image-gen.com)
 
 ![](images/ai-image.png)
 
